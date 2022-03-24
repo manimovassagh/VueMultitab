@@ -1,12 +1,27 @@
 <template>
   <div id="app">
-    <div id="nav">
+<MultiTabVue/>
+        <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
   </div>
 </template>
+
+
+
+<script>
+// @ is an alias to /src
+import MultiTabVue from "./views/MultiTab.vue"
+
+export default {
+  name: 'App',
+  components: {
+   MultiTabVue
+  }
+}
+</script>
 
 <style>
 #app {
