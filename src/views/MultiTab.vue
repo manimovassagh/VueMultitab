@@ -4,7 +4,7 @@
   <v-app id="inspire">
     <v-card>
       <v-tabs v-model="tab"  >
-        <v-tab  v-for="n in length" :key="n" :to="routeList[n]">
+        <v-tab  v-for="n in length" :key="n" :to="routeList[n-1]">
                    {{routeList[n-1]}}
           <v-btn v-show="n!=1" icon @click="length>1?length--:length==1" align="center">
             <v-icon size="10" v-show="n!=1"> mdi-close</v-icon>
@@ -37,27 +37,23 @@ export default {
 watch: {
   length(val) {
     this.tab = val - 1
-  }
-},
-mounted(){
-
-  console.log(this.routeList)
-  console.log(this.$route.name)
- 
+  },
+  
 },
 methods: {
   addTab() {
     this.length++
     this.routeList.push(this.$route.name)
+    this.routePathList.push(this.$route.path)
     
   },
-}
+  
 }
 
-
+}
 </script>
 
-<style>
+<style scoped>
 
 </style>
 
