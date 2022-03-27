@@ -1,11 +1,17 @@
 <template>
   <div id="app">
-<MultiTabVue/>
+  
+
+<MultiTab/>
+
         <div id="nav">
       <router-link to="/home">Home</router-link> |
+      <router-link to="/contact">Contact</router-link> |
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <v-btn @click="pusher">Click me to go to address</v-btn>
+   
   </div>
 </template>
 
@@ -13,13 +19,22 @@
 
 <script>
 // @ is an alias to /src
-import MultiTabVue from "./views/MultiTab.vue"
 
+import MultiTab from "./views/MultiTab.vue"
 export default {
   name: 'App',
   components: {
-   MultiTabVue
-  }
+    MultiTab
+    
+},
+
+  methods: {
+    pusher() {
+      this.$router.push('/user')
+    },
+  },
+
+
 }
 </script>
 
